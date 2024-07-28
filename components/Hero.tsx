@@ -40,7 +40,7 @@ const Hero = () => {
           />
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi! I&apos;m Ameh, a Cloud Engineer & Solutions Architect based in Nigeria.
+            Hi! I&apos;m Ameh, a Cloud Engineer based in Nigeria.
           </p>
 
           <a href="#about">
