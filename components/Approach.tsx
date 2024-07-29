@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -10,14 +10,20 @@ const Approach = () => {
       <h1 className="heading">
         My <span className="text-purple">approach</span>
       </h1>
+      <div className="flex flex-col items-center">
+        <p className="my-4 tracking-widest text-xs text-center text-blue-100 max-w-80">
+          Touch each phase to see my approach.
+        </p>
+      </div>
+
       {/* remove bg-white dark:bg-black */}
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
         {/* add des prop */}
         <Card
           title="Discovery & Planning"
           icon={<AceternityIcon order="Phase 1" />}
-          des="We'll collaborate to define your cloud infrastructure goals, target performance metrics, 
-          and key functionalities. We'll discuss aspects like architecture design, security requirements, 
+          des="We'll collaborate to define or map out your cloud infrastructure goals or strategies, target performance metrics, 
+          and key functionalities. We'll discuss aspects like architecture design, security requirements, compliance considerations 
           and scalability."
         >
           <CanvasRevealEffect
@@ -29,7 +35,7 @@ const Approach = () => {
         <Card
           title="Design & Configuration"
           icon={<AceternityIcon order="Phase 2" />}
-          des="Once we agree on the plan, I cue my focus playlist and dive into configuring the cloud environment. 
+          des="Once we agree on the plan, I cue my focus playlist and dive into designing the architecture or configuring the cloud environment. 
           From initial architecture diagrams to detailed configuration, I keep you updated every step of the way."
         >
           <CanvasRevealEffect

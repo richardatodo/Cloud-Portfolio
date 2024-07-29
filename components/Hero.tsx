@@ -1,9 +1,47 @@
+"use client"
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./ui/MagicButton";
 import { Spotlight } from "./ui/Spotlight";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 
 const Hero = () => {
+  const [displayText, setDisplayText] = useState("");
+  const [isBlinking, setIsBlinking] = useState(true);
+  const baseText = "Hi! I'm Ameh, a Cloud ";
+  const words = ["Engineer", "Architect"];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    let currentIndex = 0;
+    let currentWord = words[currentWordIndex];
+    const typingInterval = setInterval(() => {
+      setDisplayText(baseText + currentWord.slice(0, currentIndex + 1));
+      currentIndex++;
+      if (currentIndex === currentWord.length) {
+        clearInterval(typingInterval);
+        setTimeout(() => {
+          setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+        }, 1000); // Adjust pause time before switching words
+      }
+    }, 200); // Adjust typing speed here
+
+    return () => {
+      clearInterval(typingInterval);
+    };
+  }, [currentWordIndex]);
+
+  useEffect(() => {
+    const blinkingInterval = setInterval(() => {
+      setIsBlinking((prev) => !prev);
+    }, 500); // Adjust cursor blink speed here
+
+    return () => {
+      clearInterval(blinkingInterval);
+    };
+  }, []);
+
   return (
     <div className="pb-20 pt-36">
       <div>
@@ -39,9 +77,16 @@ const Hero = () => {
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
 
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi! I&apos;m Ameh, a Cloud Engineer based in Nigeria.
-          </p>
+          <div className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
+            <span>{displayText}</span>
+            <motion.span
+              animate={{ opacity: isBlinking ? 1 : 0 }}
+              transition={{ duration: 0.5, repeat: Infinity }}
+            >
+              |
+            </motion.span>
+            based in Nigeria.
+          </div>
 
           <a href="#about">
             <MagicButton
