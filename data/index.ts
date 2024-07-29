@@ -28,8 +28,8 @@ export const navItems = [
     },
     {
       id: 3,
-      title: "AWS Services",
-      description: "I constantly try to improve my proficiency",
+      title: "AWS",
+      description: "I constantly try to improve",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
       titleClassName: "justify-center",
